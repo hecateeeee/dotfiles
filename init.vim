@@ -38,16 +38,15 @@ inoremap <leader>u <esc>viwU<esc>i
 nnoremap <leader>u viwU<esc>
 
 iabbrev @@ ethanrobison@protonmail.com
-
 " }}}
 
 " markdown {{{
 augroup filetype_markdown
     au!
     au BufNewFile,BufRead *.md setl tw=72
-    " format block quotes (really, format any line, but I use cmd + V for
-    " quotes quite often, so that's how I'll remember it)
     au FileType markdown nnoremap <buffer> <leader>fq <esc>VgqA
+    au FileType markdown nnoremap <buffer> <leader>ff <esc>{V}gq
+    au FileType markdown nnoremap <buffer> <leader>o 3o<esc>ki
     au FileType markdown onoremap ih :<c-u>exe "norm! ?^# [a-zA-Z]\r:nohl\rvg_"<cr>
 augroup END
 " }}}
