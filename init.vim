@@ -1,5 +1,3 @@
-echo ">^.^<"
-
 set number
 set ruler
 set visualbell
