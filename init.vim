@@ -12,6 +12,15 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
+" colorscheme
+if strftime("%H") < 17
+    set background=light
+    colorscheme morning
+else
+    set background=dark
+    colorscheme elflord
+endif
+
 " Keybindings, Abbreviations {{{
 let mapleader=","
 let localleader="\\"
