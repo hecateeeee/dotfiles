@@ -16,7 +16,7 @@ set expandtab
 let h=strftime("%H") 
 if h > 7 && h < 17
     set background=light
-    colorscheme morning
+    colorscheme desert
 else
     set background=dark
     colorscheme elflord
