@@ -54,7 +54,8 @@ augroup filetype_markdown
     au FileType markdown nnoremap <buffer> <leader>fq <esc>VgqA
     au FileType markdown nnoremap <buffer> <leader>ff <esc>{V}gq
     au FileType markdown nnoremap <buffer> <leader>o 3o<esc>ki
-    au FileType markdown onoremap ih :<c-u>exe "norm! ?^# [a-zA-Z]\r:nohl\rvg_"<cr>
+    au FileType markdown nnoremap <buffer> <leader>nh /^#<space><cr>n
+    au FileType markdown nnoremap <buffer> <leader>ph ?^#<space><cr>n
 augroup END
 " }}}
 
