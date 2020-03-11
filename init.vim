@@ -13,7 +13,8 @@ set shiftwidth=4
 set expandtab
 
 " colorscheme
-if strftime("%H") < 17
+let h=strftime("%H") 
+if h > 7 && h < 17
     set background=light
     colorscheme morning
 else
