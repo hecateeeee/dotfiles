@@ -16,7 +16,7 @@ set expandtab
 let h=strftime("%H") 
 if h > 7 && h < 17
     set background=light
-    colorscheme desert
+    colorscheme peachpuff
 else
     set background=dark
     colorscheme elflord
@@ -31,9 +31,6 @@ nnoremap <leader>sv :so $MYVIMRC<cr>
 inoremap jk <esc>
 inoremap <esc> <nop>
 
-" remove this later...
-nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
-
 nnoremap Y y$
 nnoremap d$ <nop>
 
@@ -44,6 +41,8 @@ nnoremap <c-l> <c-w><c-l>
 
 inoremap <leader>u <esc>viwU<esc>i
 nnoremap <leader>u viwU<esc>
+
+nnoremap <leader>pb :execute "split " . bufname("#")<cr>
 
 iabbrev @@ ethanrobison@protonmail.com
 " }}}
