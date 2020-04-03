@@ -16,7 +16,7 @@ set expandtab
 let h=strftime("%H") 
 if h > 7 && h < 17
     set background=light
-    colorscheme peachpuff
+    colorscheme pablo
 else
     set background=dark
     colorscheme elflord
@@ -35,6 +35,7 @@ inoremap jk <esc>
 inoremap <esc> <nop>
 
 nnoremap Y y$
+" TODO add yank to system clipboard
 nnoremap d$ <nop>
 nnoremap <leader>o o<esc>k
 
@@ -54,11 +55,20 @@ iabbrev @@ ethanrobison@protonmail.com
 " markdown {{{
 augroup filetype_markdown
     au!
+
     au BufNewFile,BufRead *.md setl tw=72
+
     au FileType markdown nnoremap <buffer> <leader>fq <esc>VgqA
     au FileType markdown nnoremap <buffer> <leader>ff <esc>{V}gq
     au FileType markdown nnoremap <buffer> <leader>nh /^#<space><cr>n
     au FileType markdown nnoremap <buffer> <leader>ph ?^#<space><cr>n
+
+    " TODO add binding for comments
+
+    " insert the asterisk html so that markdown syntax highlighting doesn't
+    " get confused
+    iabbrev arsk &ast;
+
 augroup END
 " }}}
 
