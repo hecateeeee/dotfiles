@@ -25,7 +25,10 @@ endif
 " Keybindings, Abbreviations {{{
 let mapleader=","
 let localleader="\\"
-nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>ev v:split $MYVIMRC<cr>
+
+" TODO make this a const somehow?
+nnoremap <leader>evv :split ~/dotfiles/init.vim<cr>
 nnoremap <leader>sv :so $MYVIMRC<cr>
 
 inoremap jk <esc>
@@ -33,13 +36,14 @@ inoremap <esc> <nop>
 
 nnoremap Y y$
 nnoremap d$ <nop>
+nnoremap <leader>o o<esc>k
 
 nnoremap <c-j> <c-w><c-j>
 nnoremap <c-k> <c-w><c-k>
 nnoremap <c-h> <c-w><c-h>
 nnoremap <c-l> <c-w><c-l>
 
-inoremap <leader>u <esc>viwU<esc>i
+inoremap <leader>u <esc>viwUw<esc>i
 nnoremap <leader>u viwU<esc>
 
 nnoremap <leader>pb :execute "split " . bufname("#")<cr>
@@ -53,7 +57,6 @@ augroup filetype_markdown
     au BufNewFile,BufRead *.md setl tw=72
     au FileType markdown nnoremap <buffer> <leader>fq <esc>VgqA
     au FileType markdown nnoremap <buffer> <leader>ff <esc>{V}gq
-    au FileType markdown nnoremap <buffer> <leader>o 3o<esc>ki
     au FileType markdown nnoremap <buffer> <leader>nh /^#<space><cr>n
     au FileType markdown nnoremap <buffer> <leader>ph ?^#<space><cr>n
 augroup END
