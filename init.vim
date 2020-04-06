@@ -1,3 +1,4 @@
+" misc settings 
 set number
 set ruler
 set visualbell
@@ -12,23 +13,40 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
+" Terminal Specifics {{{
+let os=""
+if has("unix")
+    let s:uname = system("uname")
+    if s:uname == "Darwin"
+        let os="mac"
+    else
+        " NB: this is for the LSW as well
+        let os="unix" 
+    endif
+endif
+
 " colorscheme
 let h=strftime("%H") 
 if h > 7 && h < 17
     set background=light
-    colorscheme pablo
+    if os=="mac"
+        colorscheme pablo
+    else
+        colorscheme peachpuff
+    endif
 else
     set background=dark
     colorscheme elflord
 endif
+" }}}
 
 " Keybindings, Abbreviations {{{
 let mapleader=","
 let localleader="\\"
-nnoremap <leader>ev v:split $MYVIMRC<cr>
 
 " TODO make this a const somehow?
 nnoremap <leader>evv :split ~/dotfiles/init.vim<cr>
+nnoremap <leader>ev v:split $MYVIMRC<cr>
 nnoremap <leader>sv :so $MYVIMRC<cr>
 
 inoremap jk <esc>
