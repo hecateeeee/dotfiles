@@ -17,7 +17,7 @@ set expandtab
 let os=""
 if has("unix")
     let s:uname = system("uname")
-    if s:uname == "Darwin"
+    if matchstr(s:uname, "Darwin") == "Darwin"
         let os="mac"
     else
         " NB: this is for the LSW as well
