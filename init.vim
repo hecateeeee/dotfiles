@@ -45,7 +45,7 @@ let mapleader=","
 let localleader="\\"
 
 " TODO make this a const somehow?
-nnoremap <leader>evv :split ~/dotfiles/init.vim<cr>
+nnoremap <leader>evv :split ~/.config/dotfiles/init.vim<cr>
 nnoremap <leader>ev v:split $MYVIMRC<cr>
 nnoremap <leader>sv :so $MYVIMRC<cr>
 
