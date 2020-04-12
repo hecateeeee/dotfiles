@@ -17,4 +17,7 @@ alias makepass='curl -X GET -G https://www.random.org/passwords/ \
 	-d "format=plain" \
 	-d "rnd=new" | pbcopy'
 
+# Ruby stuff
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
 alias js="bundle exec jekyll server"
