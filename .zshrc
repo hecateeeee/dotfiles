@@ -16,6 +16,7 @@ alias makepass='curl -X GET -G https://www.random.org/passwords/ \
 	-d "len=24" \
 	-d "format=plain" \
 	-d "rnd=new" | pbcopy'
+alias polo=". polo"
 
 # Ruby stuff
 export GEM_HOME="$HOME/gems"

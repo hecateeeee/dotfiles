@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+val=$(pwd)
+base=$(dirname $(readlink "$(dirname ${(%):-%N})/marco"))
+echo "$val" > "$base/.polo_value"

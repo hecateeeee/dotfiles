@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+base=$(dirname $(readlink "$(dirname ${(%):-%N})/marco"))
+file="$base/.polo_value"
+
+if [ -f $file ]; then
+    cd $(cat $file)
+else
+    echo "Nothing polo'ed!"
+fi
