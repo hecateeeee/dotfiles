@@ -45,7 +45,7 @@ let mapleader=","
 let localleader="\\"
 
 " TODO make this a const somehow?
-nnoremap <leader>ev v:split $MYVIMRC<cr>
+nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :so $MYVIMRC<cr>
 
 inoremap jk <esc>
@@ -69,7 +69,7 @@ nnoremap <leader>pb :execute "split " . bufname("#")<cr>
 iabbrev @@ ethanrobison@protonmail.com
 " }}}
 
-" markdown {{{
+" Markdown Files {{{
 augroup filetype_markdown
     au!
 
@@ -89,7 +89,7 @@ augroup filetype_markdown
 augroup END
 " }}}
 
-" vimscript {{{
+" Vimscript Files {{{
 augroup filetype_vim
     au!
     au FileType vim nnoremap <buffer> <localleader>c I"<space><esc>
