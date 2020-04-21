@@ -10,6 +10,8 @@ agentid=$(eval $(ssh-agent))
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
+tmux source ~/.tmux.conf
+
 # Aliases
 alias vim=nvim
 alias makepass='curl -X GET -G https://www.random.org/passwords/ \
