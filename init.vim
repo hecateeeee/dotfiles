@@ -32,7 +32,7 @@ if h > 7 && h < 17
     if os=="mac"
         colorscheme pablo
     else
-        colorscheme peachpuff
+        colorscheme murphy
     endif
 else
     set background=dark

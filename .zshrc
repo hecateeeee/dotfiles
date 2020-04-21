@@ -5,6 +5,7 @@ fi
 
 # Extra initialization &c.
 eval "$(fasd --init auto)"
+agentid=$(eval $(ssh-agent))
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
@@ -22,3 +23,6 @@ alias polo=". polo"
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 alias js="bundle exec jekyll server"
+
+# dotnet BS
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
