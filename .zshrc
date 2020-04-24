@@ -3,6 +3,13 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+
+autoload -Uz promptinit
+promptinit
+
+# TODO different prompts on different machines
+prompt minimal
+
 # Extra initialization &c.
 eval "$(fasd --init auto)"
 agentid=$(eval $(ssh-agent))
