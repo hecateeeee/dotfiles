@@ -3,7 +3,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-
 autoload -Uz promptinit
 promptinit
 
@@ -16,8 +15,6 @@ agentid=$(eval $(ssh-agent))
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
-
-tmux source ~/.tmux.conf
 
 # Aliases
 alias vim=nvim
@@ -33,5 +30,10 @@ export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 alias js="bundle exec jekyll server"
 
-# dotnet BS
+# Dotnet BS
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+# Run tmux
+
+[ -z $TMUX ] && { tmux attach || exec tmux new-session -s general && exit }
+tmux source ~/.tmux.conf
