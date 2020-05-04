@@ -30,6 +30,9 @@ export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 alias js="bundle exec jekyll server"
 
+# Texlive
+export PATH="/usr/local/texlive/2020/bin/x86_64-darwin/:$PATH"
+
 # Dotnet BS
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
