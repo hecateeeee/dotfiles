@@ -26,8 +26,7 @@ alias makepass='curl -X GET -G https://www.random.org/passwords/ \
 alias polo=". polo"
 
 # Ruby stuff
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
 alias js="bundle exec jekyll server"
 
 # Texlive
