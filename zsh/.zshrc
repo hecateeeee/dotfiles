@@ -11,7 +11,8 @@ prompt minimal
 
 # Extra initialization &c.
 eval "$(fasd --init auto)"
-agentid=$(eval $(ssh-agent))
+
+#agentid=$(eval $(ssh-agent))
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
