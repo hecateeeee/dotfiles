@@ -1,0 +1,30 @@
+set from = "ethancrobison@gmail.com"
+set realname = "Ethan Robison"
+set smtp_authenticators = 'gssapi:login'
+source ~/.config/dotfiles/mutt/imapinfo
+
+# Folders
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed ="+[Gmail]/Drafts"
+set record ="+[Gmail]/Enviados"
+set header_cache =~/.mutt/cache/headers
+set message_cachedir =~/.mutt/cache/bodies
+set certificate_file =~/.mutt/certificates
+
+# Various vars
+set move = no 
+set include
+alternative_order text/enriched text/plain text/html
+
+# Headers
+ignore *
+unignore Date: From: User-Agent: X-Mailer X-Operating-System \
+    X-User-Agent: To: Cc: Reply-To: Subject: Mail-Followup-To:
+hdr_order Date: From: User-Agent: X-Mailer X-Operating-System \
+    X-User-Agent: To: Cc: Reply-To: Subject: Mail-Followup-To:
+
+set edit_headers=yes
+
+# Source
+source ~/.config/dotfiles/mutt/colors
