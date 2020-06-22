@@ -44,15 +44,10 @@ set termguicolors
 let h=strftime("%H") 
 if h > 7 && h < 17
     set background=light
-    if os=="mac"
-        colorscheme gruvbox
-    else
-        colorscheme murphy
-    endif
 else
     set background=dark
-    colorscheme elflord
 endif
+colorscheme gruvbox
 " }}}
 
 " Keybindings, Abbreviations {{{
