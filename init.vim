@@ -1,3 +1,17 @@
+" Vim-plug {{{
+call plug#begin(stdpath('data') . '/plugged')
+
+Plug 'kyoz/purify', { 'rtp': 'vim' }
+Plug 'morhetz/gruvbox'
+Plug 'godlygeek/tabular'
+
+Plug 'tpope/vim-liquid'
+"Plug 'plasticboy/vim-markdown'
+"Plug 'lervag/vimtex'
+
+call plug#end()
+" }}}
+
 " misc settings 
 set number
 set ruler
@@ -26,11 +40,12 @@ if has("unix")
 endif
 
 " colorscheme
+set termguicolors
 let h=strftime("%H") 
 if h > 7 && h < 17
     set background=light
     if os=="mac"
-        colorscheme pablo
+        colorscheme gruvbox
     else
         colorscheme murphy
     endif
@@ -45,7 +60,7 @@ let mapleader=","
 let localleader="\\"
 
 " TODO make this a const somehow?
-nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>ev :tab split $MYVIMRC<cr>
 nnoremap <leader>sv :so $MYVIMRC<cr>
 
 inoremap jk <esc>
@@ -65,6 +80,7 @@ inoremap <leader>u <esc>viwUw<esc>i
 nnoremap <leader>u viwU<esc>
 
 nnoremap <leader>pb :execute "split " . bufname("#")<cr>
+nnoremap <leader>m :execute "write" <bar> :execute "!make"<cr>
 
 iabbrev @@ ethanrobison@protonmail.com
 " }}}
@@ -81,10 +97,6 @@ augroup filetype_markdown
     au FileType markdown nnoremap <buffer> <leader>ph ?^#<space><cr>n
 
     " TODO add binding for comments
-
-    " insert the asterisk html so that markdown syntax highlighting doesn't
-    " get confused
-    iabbrev arsk &ast;
 
 augroup END
 " }}}
