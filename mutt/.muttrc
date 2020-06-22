@@ -1,13 +1,13 @@
-set from = "ethancrobison@gmail.com"
+set from = "ethan@ethanrobison.com"
 set realname = "Ethan Robison"
 set smtp_authenticators = 'gssapi:login'
 source ~/.config/dotfiles/mutt/imapinfo
 
 # Folders
-set folder = "imaps://imap.gmail.com:993"
+set folder = "imaps://mail.privateemail.com:993"
 set spoolfile = "+INBOX"
-set postponed ="+[Gmail]/Drafts"
-set record ="+[Gmail]/Enviados"
+set postponed ="+/Drafts"
+set record ="+Sent"
 set header_cache =~/.mutt/cache/headers
 set message_cachedir =~/.mutt/cache/bodies
 set certificate_file =~/.mutt/certificates
@@ -28,3 +28,7 @@ set edit_headers=yes
 
 # Source
 source ~/.config/dotfiles/mutt/colors
+
+# Aliases
+set alias_file =~/.mutt/aliases
+source $alias_file
