@@ -1,7 +1,6 @@
 " Vim-plug {{{
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'kyoz/purify', { 'rtp': 'vim' }
 Plug 'morhetz/gruvbox'
 Plug 'godlygeek/tabular'
 
@@ -42,19 +41,19 @@ endif
 " colorscheme
 set termguicolors
 let h=strftime("%H") 
-if h > 7 && h < 17
-    set background=light
-else
-    set background=dark
-endif
+" if h > 7 && h < 17
+    " set background=light
+" else
+    " set background=dark
+" endif
+set background=dark
 colorscheme gruvbox
 " }}}
 
 " Keybindings, Abbreviations {{{
 let mapleader=","
-let localleader="\\"
+let maplocalleader="-"
 
-" TODO make this a const somehow?
 nnoremap <leader>ev :tab split $MYVIMRC<cr>
 nnoremap <leader>sv :so $MYVIMRC<cr>
 
@@ -91,9 +90,26 @@ augroup filetype_markdown
     au FileType markdown nnoremap <buffer> <leader>nh /^#<space><cr>n
     au FileType markdown nnoremap <buffer> <leader>ph ?^#<space><cr>n
 
+au FileType markdown inoremap <buffer> <localleader>a ó
+    au FileType markdown inoremap <buffer> <localleader>e é
+    au FileType markdown inoremap <buffer> <localleader>i í
+    au FileType markdown inoremap <buffer> <localleader>o ó
+    au FileType markdown inoremap <buffer> <localleader>u ú
+    au FileType markdown inoremap <buffer> <localleader>n ñ
+
+
     " TODO add binding for comments
 
 augroup END
+" }}}
+
+" SomaSim Config Files {{{
+augroup filetype_scheme
+    au!
+
+    au FileType scheme nnoremap <buffer> <localleader>c <esc>0i;<esc>
+augroup END
+
 " }}}
 
 " Vimscript Files {{{
