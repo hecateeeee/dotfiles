@@ -90,7 +90,7 @@ augroup filetype_markdown
     au FileType markdown nnoremap <buffer> <leader>nh /^#<space><cr>n
     au FileType markdown nnoremap <buffer> <leader>ph ?^#<space><cr>n
 
-au FileType markdown inoremap <buffer> <localleader>a ó
+    au FileType markdown inoremap <buffer> <localleader>a á
     au FileType markdown inoremap <buffer> <localleader>e é
     au FileType markdown inoremap <buffer> <localleader>i í
     au FileType markdown inoremap <buffer> <localleader>o ó
