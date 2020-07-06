@@ -40,3 +40,14 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
+case $(uname -v) in
+    *Microsoft* )
+        CTX="WSL"
+        source ~/.config/dotfiles/zsh/wsl_zshrc;;
+    *Darwin* )
+        CTX="OSX"
+        source ~/.config/dotfiles/zsh/osx_zshrc;;
+    * )
+        CTX=""
+        echo "Unknown context";;
+esac
