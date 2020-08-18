@@ -1,1 +1,18 @@
 #!/bin/zsh
+
+# Aliases TODO functions?
+alias makepass='curl -X GET -G https://www.random.org/passwords/ \
+	-d "num=1" \
+	-d "len=24" \
+	-d "format=plain" \
+	-d "rnd=new" | pbcopy'
+
+# GNU Utils
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+# Texlive
+export PATH="/usr/local/texlive/2020/bin/x86_64-darwin/:$PATH"
+
+# Getting Things Done Utils
+export PATH="/Users/ethan/Documents/notas/:$PATH"
