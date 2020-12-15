@@ -52,7 +52,7 @@ colorscheme gruvbox
 
 " Keybindings, Abbreviations {{{
 let mapleader=","
-let maplocalleader="-"
+let maplocalleader="="
 
 nnoremap <leader>ev :tab split $MYVIMRC<cr>
 nnoremap <leader>sv :so $MYVIMRC<cr>
@@ -97,6 +97,7 @@ augroup filetype_markdown
     au FileType markdown inoremap <buffer> <localleader>u ú
     au FileType markdown inoremap <buffer> <localleader>n ñ
 
+    au FileType markdown iabbrev >; &rarr;
 
     " TODO add binding for comments
 

@@ -16,6 +16,8 @@ export EDITOR="$VISUAL"
 # Aliases
 alias vim=nvim
 alias polo=". polo"
+alias n=newsboat
+alias m=mutt
 
 # Tmux
 [ -z $TMUX ] && { tmux attach || exec tmux new-session -s general && exit }
