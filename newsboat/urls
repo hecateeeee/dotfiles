@@ -1,4 +1,7 @@
+"query:Unread All:unread = \"yes\""
+"query:Unread and Old:age > 13 and unread = \"yes\""
 https://www.youtube.com/feeds/videos.xml?channel_id=UCs-w7E2HZWwXmjt9RTvBB_A 
+https://www.youtube.com/feeds/videos.xml?channel_id=UCNvsIonJdJ5E4EXMa65VYpA
 https://www.youtube.com/feeds/videos.xml?channel_id=UCUNoAjAgVHEHc6jrUr4XuWQ
 https://www.youtube.com/feeds/videos.xml?channel_id=UCaifrB5IrvGNPJmPeVOcqBA 
 https://www.youtube.com/feeds/videos.xml?channel_id=UCGaVdbSav8xWuFWTadK6loA 

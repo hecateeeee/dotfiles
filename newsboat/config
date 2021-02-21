@@ -1,1 +1,3 @@
 auto-reload yes
+prepopulate-query-feeds yes
+article-sort-order date asc
