@@ -10,11 +10,11 @@ prompt minimal
 # Extra initialization &c.
 eval "$(fasd --init auto)"
 
-export VISUAL=nvim
+export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # Aliases
-alias vim=nvim
+# alias vim=nvim
 alias polo=". polo"
 alias n=newsboat
 alias m=mutt
