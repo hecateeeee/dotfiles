@@ -1,6 +1,13 @@
 #!/bin/zsh
 
+# Personal
+export DOCS="/mnt/c/Users/realethan/Documents"
+export PROJECTS_HOME="$DOCS/proyectos"
+export PATH="$DOCS/notas/:$PATH"
+
+# Vim
 export VIM_CONFIG="/home/ethan/.config/.vim"
 
+# Ruby
 export GEM_HOME="/home/ethan/.ruby"
 export PATH="/home/ethan/.ruby/bin:$PATH"

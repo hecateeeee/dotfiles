@@ -1,14 +1,16 @@
 #!/bin/zsh
 
+# Personal
+export DOCS="/Users/ethan/Documents"
+export PROJECTS_HOME="$DOCS/proyectos"
+export PATH="$DOCS/notas/:$PATH"
+
 # Aliases 
 alias makepass='curl -X GET -G https://www.random.org/passwords/ \
 	-d "num=1" \
 	-d "len=24" \
 	-d "format=plain" \
 	-d "rnd=new" | pbcopy'
-
-# Getting Things Done Utils
-export PATH="/Users/ethan/Documents/notas/:$PATH"
 
 # Vim
 export VIM_CONFIG="/Users/ethan/.config/.vim"
