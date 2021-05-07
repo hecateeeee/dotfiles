@@ -3,4 +3,4 @@
 export VIM_CONFIG="/home/ethan/.config/.vim"
 
 export GEM_HOME="/home/ethan/.ruby"
-export PATH="$PATH:/home/ethan/.ruby/bin"
+export PATH="/home/ethan/.ruby/bin:$PATH"

@@ -1,12 +1,16 @@
 #!/bin/zsh
 
-# Aliases TODO functions?
+# Aliases 
 alias makepass='curl -X GET -G https://www.random.org/passwords/ \
 	-d "num=1" \
 	-d "len=24" \
 	-d "format=plain" \
 	-d "rnd=new" | pbcopy'
 
+# Getting Things Done Utils
+export PATH="/Users/ethan/Documents/notas/:$PATH"
+
+# Vim
 export VIM_CONFIG="/home/ethan/.config/vim"
 
 # GNU Utils
@@ -16,8 +20,11 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # Texlive
 export PATH="/usr/local/texlive/2020/bin/x86_64-darwin/:$PATH"
 
-# Getting Things Done Utils
-export PATH="/Users/ethan/Documents/notas/:$PATH"
-
 # Racket
 export PATH="/Applications/Racket v7.9/bin/:$PATH"
+
+# Ruby
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# Dotnet BS
+export DOTNET_CLI_TELEMETRY_OPTOUT=1

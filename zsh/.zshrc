@@ -14,21 +14,14 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # Aliases
-# alias vim=nvim
 alias polo=". polo"
 alias n=newsboat
 alias m=mutt
+alias js="bundle exec jekyll server"
 
 # Tmux
 [ -z $TMUX ] && { tmux attach || exec tmux new-session -s general && exit }
 tmux source ~/.tmux.conf
-
-# Ruby
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-alias js="bundle exec jekyll server"
-
-# Dotnet BS
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 case $(uname -v) in
     *Microsoft* )
