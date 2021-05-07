@@ -7,6 +7,8 @@ alias makepass='curl -X GET -G https://www.random.org/passwords/ \
 	-d "format=plain" \
 	-d "rnd=new" | pbcopy'
 
+export VIM_CONFIG="/home/ethan/.config/vim"
+
 # GNU Utils
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
