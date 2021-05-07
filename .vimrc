@@ -15,6 +15,7 @@ Plug 'flazz/vim-colorschemes'                           " Even more colorschemes
 Plug 'pprovost/vim-ps1'                                 " Powershell support
 Plug 'itchyny/lightline.vim'                            " Statusline
 Plug 'wlangstroth/vim-racket'				" Racket syntax etc, for dc/dcx files
+Plug 'adimit/prolog.vim'                                " SWI-prolog support
 
 call plug#end()
 " }}}
@@ -214,5 +215,14 @@ augroup filetype_vim
     au FileType vim setl foldmethod=marker
     au FileType vim setl foldlevelstart=0
 augroup END
+" }}}
+
+" Prolog {{{
+
+augroup prolog_tests
+    au!
+    au BufNewFile,BufRead *.plt setlocal filetype=prolog
+augroup end
+
 " }}}
 
