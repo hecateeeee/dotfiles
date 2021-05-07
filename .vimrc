@@ -1,7 +1,7 @@
 set runtimepath=$VIM_CONFIG,$VIMRUNTIME
 
 " Vim-plug {{{
-call plug#begin($VIM_CONFIG . '/vimfiles/plugged')
+call plug#begin($VIM_CONFIG . '/plugged')
 
 " utils
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " fzf core

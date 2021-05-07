@@ -11,7 +11,7 @@ alias makepass='curl -X GET -G https://www.random.org/passwords/ \
 export PATH="/Users/ethan/Documents/notas/:$PATH"
 
 # Vim
-export VIM_CONFIG="/home/ethan/.config/vim"
+export VIM_CONFIG="/Users/ethan/.config/.vim"
 
 # GNU Utils
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
