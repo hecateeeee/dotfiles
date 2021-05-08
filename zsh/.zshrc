@@ -13,12 +13,6 @@ eval "$(fasd --init auto)"
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-# Aliases
-alias polo=". polo"
-alias n=newsboat
-alias m=mutt
-alias js="bundle exec jekyll server"
-
 # Tmux
 [ -z $TMUX ] && { tmux attach || exec tmux new-session -s general && exit }
 tmux source ~/.tmux.conf
@@ -34,3 +28,10 @@ case $(uname -v) in
         CTX=""
         echo "Unknown context";;
 esac
+
+# Aliases
+alias cdp="cd $PROJECTS_HOME"
+alias polo=". polo"
+alias n=newsboat
+alias m=mutt
+alias js="bundle exec jekyll server"

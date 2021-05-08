@@ -2,7 +2,8 @@
 
 # Personal
 export DOCS="/mnt/c/Users/realethan/Documents"
-export PROJECTS_HOME="$DOCS/proyectos"
+export A_DRIVE="/mnt/a"
+export PROJECTS_HOME="$A_DRIVE/proyectos"
 export PATH="$DOCS/notas/:$PATH"
 
 # Vim
