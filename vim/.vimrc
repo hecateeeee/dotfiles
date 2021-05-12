@@ -141,41 +141,6 @@ nnoremap <silent> <cr> :nohl<cr><cr>
 
 " }}}
 
-" Markdown Files {{{
-augroup filetype_markdown
-    au!
-
-    au BufNewFile,BufRead *.md setl tw=72
-
-    au FileType markdown nnoremap <buffer> <localleader>fq <esc>VgqA
-    au FileType markdown nnoremap <buffer> <localleader>ff <esc>{V}gq
-    au FileType markdown nnoremap <buffer> <localleader>nh /^#<space><cr>n
-    au FileType markdown nnoremap <buffer> <localleader>ph ?^#<space><cr>n
-    au FileType markdown nnoremap <buffer> <localleader>m :execute "write" <bar> :execute "!make"<cr>
-
-    au FileType markdown inoremap <buffer> <localleader>a á
-    au FileType markdown inoremap <buffer> <localleader>e é
-    au FileType markdown inoremap <buffer> <localleader>i í
-    au FileType markdown inoremap <buffer> <localleader>o ó
-    au FileType markdown inoremap <buffer> <localleader>u ú
-    au FileType markdown inoremap <buffer> <localleader>n ñ
-
-    au FileType markdown iabbrev >; &rarr;
-
-    " TODO add binding for comments
-
-augroup END
-" }}}
-
-" SomaSim Config Files {{{
-augroup filetype_scheme
-    au!
-
-    au FileType scheme nnoremap <buffer> <localleader>c <esc>0i;<esc>
-    au FileType scheme setl sw=8 sts=8 noet list
-augroup END
-" }}}
-
 " C++ {{{
 augroup filetype_cpp
     au!
@@ -207,22 +172,3 @@ function! ClangFormat(type)
 endfunction
 
 " }}}
-
-" Vimscript Files {{{
-augroup filetype_vim
-    au!
-    au FileType vim nnoremap <buffer> <localleader>c I"<space><esc>
-    au FileType vim setl foldmethod=marker
-    au FileType vim setl foldlevelstart=0
-augroup END
-" }}}
-
-" Prolog {{{
-
-augroup prolog_tests
-    au!
-    au BufNewFile,BufRead *.plt setlocal filetype=prolog
-augroup end
-
-" }}}
-
