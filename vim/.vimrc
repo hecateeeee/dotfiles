@@ -8,6 +8,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " fzf core
 Plug 'junegunn/fzf.vim'                                 " fzf vim integration
 Plug 'nfvs/vim-perforce'                                " p4
 " Plug 'valloric/youcompleteme'                           " YCM baybee
+Plug 'tpope/vim-liquid'                                 " Liquid (for jekyll)
 
 " visuals
 Plug 'morhetz/gruvbox'                                  " Colorscheme gruvbox
