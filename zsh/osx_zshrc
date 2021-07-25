@@ -12,6 +12,8 @@ alias makepass='curl -X GET -G https://www.random.org/passwords/ \
 	-d "format=plain" \
 	-d "rnd=new" | pbcopy'
 
+alias python=python3
+
 # Vim
 export VIM_CONFIG="/Users/ethan/.config/.vim"
 
