@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # Personal
-export DOCS="/Users/ethan/Documents"
+export DOCS="/Users/$USER/Documents"
 export PROJECTS_HOME="$DOCS/proyectos"
 export PATH="$DOCS/notas/:$PATH"
 
@@ -13,9 +13,6 @@ alias makepass='curl -X GET -G https://www.random.org/passwords/ \
 	-d "rnd=new" | pbcopy'
 
 alias python=python3
-
-# Vim
-export VIM_CONFIG="/Users/ethan/.config/.vim"
 
 # GNU Utils
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
