@@ -1,5 +1,9 @@
-utils/.polo_value
-mutt/imapinfo
 mutt/aliases
+mutt/imapinfo
 
 .swp
+
+utils/.polo_value
+
+vim/autoload
+vim/plugged
