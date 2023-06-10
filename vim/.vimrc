@@ -1,22 +1,24 @@
-set runtimepath=$VIM_CONFIG,$VIMRUNTIME
+set runtimepath=$VIMCONFIG,$VIMRUNTIME
+set t_u7=
+syntax on
 
 " Vim-plug {{{
-call plug#begin($VIM_CONFIG . '/plugged')
+call plug#begin($VIMCONFIG . '/plugged')
 
 " utils
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " fzf core
-Plug 'junegunn/fzf.vim'                                 " fzf vim integration
-Plug 'nfvs/vim-perforce'                                " p4
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " fzf core
+" Plug 'junegunn/fzf.vim'                                 " fzf vim integration
+" Plug 'nfvs/vim-perforce'                                " p4
 " Plug 'valloric/youcompleteme'                           " YCM baybee
-Plug 'tpope/vim-liquid'                                 " Liquid (for jekyll)
+" Plug 'tpope/vim-liquid'                                 " Liquid (for jekyll)
 
 " visuals
 Plug 'morhetz/gruvbox'                                  " Colorscheme gruvbox
 Plug 'flazz/vim-colorschemes'                           " Even more colorschemes
-Plug 'pprovost/vim-ps1'                                 " Powershell support
+" Plug 'pprovost/vim-ps1'                                 " Powershell support
 Plug 'itchyny/lightline.vim'                            " Statusline
-Plug 'wlangstroth/vim-racket'				" Racket syntax etc, for dc/dcx files
-Plug 'adimit/prolog.vim'                                " SWI-prolog support
+" Plug 'wlangstroth/vim-racket'				" Racket syntax etc, for dc/dcx files
+" Plug 'adimit/prolog.vim'                                " SWI-prolog support
 
 call plug#end()
 " }}}
@@ -59,16 +61,16 @@ set guioptions =t
 " set backupdir=c:\\vimtmp\\backup
 " set undodir=c:\\vimtmp\\undo
 
-"}}}
-
-" Terminal Specifics {{{
-
-set encoding=utf-8
-
 " colorscheme
 " set termguicolors
 set background=dark
 colorscheme gruvbox
+
+set encoding=utf-8
+
+"}}}
+
+" Terminal Specifics {{{
 
 " Hack attack stolen from Max at ND
 " Original comment from him: UGH terrible idea. Breaks a load of plugins.
@@ -76,28 +78,28 @@ colorscheme gruvbox
 " term configs are wonky af. It's not clear, per Max's comment, which (if any)
 " plugins are broken, but I'm keeping this around for posterity. Fucking
 " software.
-if $SHELL == "/bin/tcsh"
-    set shell=c:/ndibin/cygwin/bin/tcsh.exe
-    set shellcmdflag=-c
-    set shellxquote=\"
-    set shellslash
-endif
+" if $SHELL == "/bin/tcsh"
+    " set shell=c:/ndibin/cygwin/bin/tcsh.exe
+    " set shellcmdflag=-c
+    " set shellxquote=\"
+    " set shellslash
+" endif
 
-let g:ecr_NdBranch = $GAMEBRANCH
-let g:ecr_NdGame = $GAMENAME
-let g:ecr_NdPath = 'C:\branches\' . g:ecr_NdBranch
+" let g:ecr_NdBranch = $GAMEBRANCH
+" let g:ecr_NdGame = $GAMENAME
+" let g:ecr_NdPath = 'C:\branches\' . g:ecr_NdBranch
 
 " set up the path properly
-:let &path = ""
+" :let &path = ""
 
-:let &path .= g:ecr_NdPath . '\shared\src\'
-:let &path .= ',' . g:ecr_NdPath . '\shared\src\**'
-:let &path .= ',' . g:ecr_NdPath . '\' . g:ecr_NdGame . '\src\'
-:let &path .= ',' . g:ecr_NdPath . '\' . g:ecr_NdGame . '\src\**'
-:let &path .= ',c:\build\erobison\code\' . g:ecr_NdBranch . '\' . g:ecr_NdGame . '\ps4\default\dch\'
-:let &path .= ',c:\build\erobison\code\' . g:ecr_NdBranch . '\' . g:ecr_NdGame . '\ps4\default\dch\**'
-:let &path .= ',c:\build\erobison\code\' . g:ecr_NdBranch . '\unittest-gamelib\ps4\default\dch\'				" because fuck you
-:let &path .= ',c:\build\erobison\code\' . g:ecr_NdBranch . '\unittest-gamelib\ps4\default\dch\**'			" because fuck me
+" :let &path .= g:ecr_NdPath . '\shared\src\'
+" :let &path .= ',' . g:ecr_NdPath . '\shared\src\**'
+" :let &path .= ',' . g:ecr_NdPath . '\' . g:ecr_NdGame . '\src\'
+" :let &path .= ',' . g:ecr_NdPath . '\' . g:ecr_NdGame . '\src\**'
+" :let &path .= ',c:\build\erobison\code\' . g:ecr_NdBranch . '\' . g:ecr_NdGame . '\ps4\default\dch\'
+" :let &path .= ',c:\build\erobison\code\' . g:ecr_NdBranch . '\' . g:ecr_NdGame . '\ps4\default\dch\**'
+" :let &path .= ',c:\build\erobison\code\' . g:ecr_NdBranch . '\unittest-gamelib\ps4\default\dch\'				" because fuck you
+" :let &path .= ',c:\build\erobison\code\' . g:ecr_NdBranch . '\unittest-gamelib\ps4\default\dch\**'			" because fuck me
 
 " TODO
 " exec ":cd " . g:ecr_NdPath
@@ -142,7 +144,7 @@ nnoremap <silent> <cr> :nohl<cr><cr>
 
 " }}}
 
-" C++ {{{
+" NDI {{{
 augroup filetype_cpp
     au!
     au Filetype cpp vmap <silent> <buffer> <localleader>= :pyfile c:/branches/main/tools/src/scripts/clang-format/clang-format.py<cr>
