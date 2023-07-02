@@ -11,6 +11,7 @@ call plug#begin($VIMCONFIG . '/plugged')
 " Plug 'nfvs/vim-perforce'                                " p4
 " Plug 'valloric/youcompleteme'                           " YCM baybee
 " Plug 'tpope/vim-liquid'                                 " Liquid (for jekyll)
+Plug 'prabirshrestha/vim-lsp'
 
 " visuals
 Plug 'morhetz/gruvbox'                                  " Colorscheme gruvbox
@@ -21,6 +22,19 @@ Plug 'itchyny/lightline.vim'                            " Statusline
 " Plug 'adimit/prolog.vim'                                " SWI-prolog support
 
 call plug#end()
+" }}}
+
+" LSP {{{
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand('~/.logs/vim-lsp.log')
+
+if executable ('pylsp')
+    au User lsp_setup call lsp#register_server({
+                \ 'name': 'pylsp',
+                \ 'cmd': {server_info->['pylsp']},
+                \ 'allowlist': ['python'],
+                \ })
+endif
 " }}}
 
 " General visuals {{{
