@@ -33,11 +33,13 @@ export VIMCONFIG="/home/$USER/.config/dotfiles/vim"
 # esac
 
 # Aliases
-alias cdp="cd $PROJECTS_HOME"
-alias polo=". polo"
-alias n=newsboat
-alias m=mutt
-alias js="bundle exec jekyll server"
+# alias cdp="cd $PROJECTS_HOME"
+# alias polo=". polo"
+# alias n=newsboat
+# alias m=mutt
+# alias js="bundle exec jekyll server"
+
+export PATH="$HOME/.local/bin/:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
