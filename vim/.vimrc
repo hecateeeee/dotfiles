@@ -6,35 +6,16 @@ syntax on
 call plug#begin($VIMCONFIG . '/plugged')
 
 " utils
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " fzf core
-" Plug 'junegunn/fzf.vim'                                 " fzf vim integration
-" Plug 'nfvs/vim-perforce'                                " p4
-" Plug 'valloric/youcompleteme'                           " YCM baybee
-" Plug 'tpope/vim-liquid'                                 " Liquid (for jekyll)
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " fzf core
+Plug 'junegunn/fzf.vim'                                 " fzf vim integration
 Plug 'prabirshrestha/vim-lsp'
 
 " visuals
 Plug 'morhetz/gruvbox'                                  " Colorscheme gruvbox
 Plug 'flazz/vim-colorschemes'                           " Even more colorschemes
-" Plug 'pprovost/vim-ps1'                                 " Powershell support
 Plug 'itchyny/lightline.vim'                            " Statusline
-" Plug 'wlangstroth/vim-racket'				" Racket syntax etc, for dc/dcx files
-" Plug 'adimit/prolog.vim'                                " SWI-prolog support
 
 call plug#end()
-" }}}
-
-" LSP {{{
-let g:lsp_log_verbose = 1
-let g:lsp_log_file = expand('~/.logs/vim-lsp.log')
-
-if executable ('pylsp')
-    au User lsp_setup call lsp#register_server({
-                \ 'name': 'pylsp',
-                \ 'cmd': {server_info->['pylsp']},
-                \ 'allowlist': ['python'],
-                \ })
-endif
 " }}}
 
 " General visuals {{{
@@ -56,6 +37,7 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set nowrap
+set autoindent
 
 " tabs (pages, not the characters)
 set showtabline=2
@@ -150,42 +132,48 @@ inoremap <leader>u <esc>viwuw<esc>i
 nnoremap <leader>U viwU<esc>
 nnoremap <leader>u viwu<esc>
 
+nnoremap <space> za
+
 " clear last search highlighting, my god
 nnoremap <silent> <cr> :nohl<cr><cr>
 
-" I almost never use this... TODO remove?
-" nnoremap <leader>pb :execute "split " . bufname("#")<cr>
-
 " }}}
 
-" NDI {{{
-augroup filetype_cpp
-    au!
-    au Filetype cpp vmap <silent> <buffer> <localleader>= :pyfile c:/branches/main/tools/src/scripts/clang-format/clang-format.py<cr>
-    au Filetype cpp nmap <silent> <buffer> <localleader>= :set opfunc=ClangFormat<CR>g@
-augroup end
+" fzf {{{
 
-augroup ndi
-    au!
-    au BufNewFile,BufRead *.dc setlocal filetype=racket
-    au BufNewFile,BufRead *.dcx setlocal filetype=racket
-    au FileType cpp,racket setlocal
-                \ noexpandtab
-                \ tabstop=4
-    au FileType cpp,racket nnoremap <buffer> <localleader>p :P4edit<cr>
-    au FileType cpp,racket nnoremap <buffer> <localleader>P :P4revert<cr>
-    au FileType cpp,racket nnoremap <silent> <buffer> <localleader>w :execute "setlocal list!"<cr>
+let g:her_Path	 = $HOME
 
-augroup end
+let g:her_fzfPath = [ g:her_Path ]
 
-" clang format
-let g:clang_format_path = "c:/ndibin/clang-format-ndi.exe"
+let include_paths = ""
+for path in g:her_fzfPath
+	let include_paths .= path . ' '
+endfor
 
-function! ClangFormat(type)
-	let start = getpos("'[")[1]
-	let end = getpos("']")[1]
-	let l:lines = start . ":" . end
-	:pyf c:/branches/main/tools/src/scripts/clang-format/clang-format.py
-endfunction
+" extensions to ignore
+let g:her_fzfIgnoreExt =
+			\ [
+			\ 'swp',
+			\ ]
+
+let ignore_ext = ""
+for ext in g:her_fzfIgnoreExt
+	let ignore_ext .= '-E "*.' . ext . '" '
+endfor
+
+" paths to ignore
+let g:her_fzfIgnoreDir =
+			\ [
+                        \ '.git',
+                        \ 'Downloads'
+			\ ]
+
+let ignore_paths = ""
+for dir in g:her_fzfIgnoreDir
+	let ignore_paths .= '-E "' . dir . '" '
+endfor
+
+let g:her_fzfProjectSource = "fdfind --hidden --type f " . ignore_ext . " " . ignore_paths . " " . " . " . include_paths
+nnoremap <leader><leader> :call fzf#run(fzf#wrap({'source': g:her_fzfProjectSource, 'sink': 'tabedit', 'down': '30%', 'options' : ['--reverse']}))<cr>
 
 " }}}
