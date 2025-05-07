@@ -1,6 +1,9 @@
-set runtimepath=$VIMCONFIG,$VIMRUNTIME
-set t_u7=
+" n.b., need to have this before the runtimepath set-up... i'm not entirely
+" sure why, but otherwise vim90 synload.vim complains about missing
+" colorschemes later... sigh
 syntax on
+set t_u7=
+set runtimepath=$VIMCONFIG,$VIMRUNTIME
 
 " Vim-plug {{{
 call plug#begin($VIMCONFIG . '/plugged')
@@ -34,6 +37,7 @@ set smartcase
 
 " tabs spaces &c.
 set softtabstop=4
+set tabstop=4
 set shiftwidth=4
 set expandtab
 set nowrap
@@ -58,7 +62,6 @@ set guioptions =t
 " set undodir=c:\\vimtmp\\undo
 
 " colorscheme
-" set termguicolors
 set background=dark
 colorscheme gruvbox
 
@@ -106,14 +109,16 @@ set encoding=utf-8
 let mapleader=","
 let maplocalleader="\\"
 
-nnoremap <leader>ev :tab split $MYVIMRC<cr>
-nnoremap <leader>sv :so $MYVIMRC<cr>
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" General
 inoremap jk <esc>
 inoremap <esc> <nop>
 vnoremap jk <esc>
 vnoremap <esc> <nop>
 
+" Editing
 nnoremap Y y$
 nnoremap <leader>yy "+yy
 vnoremap <leader>y "+y
@@ -122,15 +127,18 @@ nnoremap <leader>P "+P
 nnoremap d$ <nop>
 nnoremap <leader>o o<esc>k
 
+inoremap <leader>U <esc>viwUw<esc>i
+inoremap <leader>u <esc>viwuw<esc>i
+nnoremap <leader>U viwU<esc>
+nnoremap <leader>u viwu<esc>
+
+" Navigation
 nnoremap <c-j> <c-w><c-j>
 nnoremap <c-k> <c-w><c-k>
 nnoremap <c-h> <c-w><c-h>
 nnoremap <c-l> <c-w><c-l>
 
-inoremap <leader>U <esc>viwUw<esc>i
-inoremap <leader>u <esc>viwuw<esc>i
-nnoremap <leader>U viwU<esc>
-nnoremap <leader>u viwu<esc>
+nnoremap H ^
 
 nnoremap <space> za
 
@@ -141,7 +149,7 @@ nnoremap <silent> <cr> :nohl<cr><cr>
 
 " fzf {{{
 
-let g:her_Path	 = $HOME
+let g:her_Path = $HOME
 
 let g:her_fzfPath = [ g:her_Path ]
 
@@ -153,7 +161,14 @@ endfor
 " extensions to ignore
 let g:her_fzfIgnoreExt =
 			\ [
+			\ 'jpg', 'jpeg',
+			\ 'png',
 			\ 'swp',
+            \ 'gif',
+            \ 'mov',
+            \ 'pdf',
+            \ 'rkt~',
+            \ 'zip',
 			\ ]
 
 let ignore_ext = ""
@@ -165,7 +180,9 @@ endfor
 let g:her_fzfIgnoreDir =
 			\ [
                         \ '.git',
-                        \ 'Downloads'
+                        \ '.runelite',
+                        \ 'Applications',
+                        \ 'Videos/Party',
 			\ ]
 
 let ignore_paths = ""
@@ -173,7 +190,16 @@ for dir in g:her_fzfIgnoreDir
 	let ignore_paths .= '-E "' . dir . '" '
 endfor
 
-let g:her_fzfProjectSource = "fdfind --hidden --type f " . ignore_ext . " " . ignore_paths . " " . " . " . include_paths
-nnoremap <leader><leader> :call fzf#run(fzf#wrap({'source': g:her_fzfProjectSource, 'sink': 'tabedit', 'down': '30%', 'options' : ['--reverse']}))<cr>
+let s:fzfFoo            = ignore_ext . " " . ignore_paths . " " . " . " . include_paths
+let g:her_fzfCommand    = "fdfind --type f " . s:fzfFoo
+let g:her_fzfCommandAug = "fdfind --hidden --no-ignore --type f " . s:fzfFoo
+nnoremap <leader>e :call fzf#run(fzf#wrap({'source': g:her_fzfCommand, 'down': '30%', 'options' : ['--reverse'], 'sink':    'edit'}))<cr>
+nnoremap <leader>s :call fzf#run(fzf#wrap({'source': g:her_fzfCommand, 'down': '30%', 'options' : ['--reverse'], 'sink':   'split'}))<cr>
+nnoremap <leader>v :call fzf#run(fzf#wrap({'source': g:her_fzfCommand, 'down': '30%', 'options' : ['--reverse'], 'sink':  'vsplit'}))<cr>
+nnoremap <leader>t :call fzf#run(fzf#wrap({'source': g:her_fzfCommand, 'down': '30%', 'options' : ['--reverse'], 'sink': 'tabedit'}))<cr>
+nnoremap <leader>E :call fzf#run(fzf#wrap({'source': g:her_fzfCommandAug, 'down': '30%', 'options' : ['--reverse'], 'sink':    'edit'}))<cr>
+nnoremap <leader>S :call fzf#run(fzf#wrap({'source': g:her_fzfCommandAug, 'down': '30%', 'options' : ['--reverse'], 'sink':   'split'}))<cr>
+nnoremap <leader>V :call fzf#run(fzf#wrap({'source': g:her_fzfCommandAug, 'down': '30%', 'options' : ['--reverse'], 'sink':  'vsplit'}))<cr>
+nnoremap <leader>T :call fzf#run(fzf#wrap({'source': g:her_fzfCommandAug, 'down': '30%', 'options' : ['--reverse'], 'sink': 'tabedit'}))<cr>
 
 " }}}
